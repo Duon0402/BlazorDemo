@@ -1,0 +1,27 @@
+﻿@page "/greeting-card"
+@rendermode InteractiveServer
+
+
+<div class="card" style="max-width: 400px; margin: 0 auto;">
+    <div class="card-header">
+        <h2 class="card-title">Greeting Card</h2>
+    </div>
+    <div class="card-body">
+        
+        @if (ShowInfo)
+        {
+            <p>Your personalized greeting information is shown below:</p>
+            <ul>
+                <li><strong>Name:</strong> @Name</li>
+                <li><strong>Message:</strong> "Welcome to Blazor!"</li>
+                <li><strong>Date:</strong> @DateTime.Now.ToString("dd/MM/yyyy")</li>
+            </ul>
+        }
+        else {
+            <p class="text-center">Click button to view information</p>
+        }
+    </div>
+    <div class="card-footer d-flex justify-content-center">
+        <button class="btn btn-primary" @onclick="HandleClick">Click Me</button>
+    </div>
+</div>

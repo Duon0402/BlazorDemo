@@ -1,0 +1,29 @@
+﻿@page "/pokedex"
+@rendermode InteractiveServer
+
+<h1>Pokedex</h1>
+<div>
+    @if (IsLoading)
+    {
+        <p>Loading...</p>
+    }
+    else
+    {
+        <div class="d-flex flex-wrap">
+            @foreach (var pokemon in Pokemons)
+            {
+                <div class="card m-2" style="width: 150px;">
+                    <img src="@pokemon.GetPokemonImageUrl()" class="card-img-top" alt="@pokemon.Name" />
+                    <div class="card-body text-center">
+                        <h6 class="card-title">@pokemon.Name.ToUpper()</h6>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+<div class="pagination mt-3">
+    <button class="btn btn-secondary me-2" @onclick="LoadPreviousPage" disabled="@((Offset <= 0) || IsLoading)">Previous</button>
+    <button class="btn btn-secondary" @onclick="LoadNextPage" disabled="@IsLoading">Next</button>
+</div>
