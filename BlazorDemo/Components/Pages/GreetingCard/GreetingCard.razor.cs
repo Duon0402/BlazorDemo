@@ -10,7 +10,7 @@ namespace BlazorDemo.Components.Pages.GreetingCard
         public void HandleClick()
         {
             ShowInfo = !ShowInfo;
-            if(ShowInfo)
+            if (ShowInfo)
             {
                 Name = "Duong";
             }
